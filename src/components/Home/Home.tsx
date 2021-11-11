@@ -228,7 +228,7 @@ export const Home = (props: Props) => {
                             </div>
                         </Grid>
                         <Grid item xs={7} className={classes.about_text}>
-                            <b>Hi, I am Vida. I am a full stack engineer with machine learning knowledge and a Ph.D. in electrical engineering </b>
+                            <b>Hi, I am Vida! I am a full-stack engineer with the machine learning experience and a Ph.D. in electrical engineering </b>
                         </Grid>
                     </Grid>
 
