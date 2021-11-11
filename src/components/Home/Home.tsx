@@ -13,8 +13,9 @@ import GoogleScholarImg from '../../assets/images/googlescholar1.png';
 import ResearchGateImg from '../../assets/images/rg2.png';
 import VidaResume from '../../assets/images/VahidehResume.pdf';
 import GG from '../../assets/images/GG.jpeg';
+import { createTheme, Theme } from '@material-ui/core/styles';
 
-
+const theme: Theme = createTheme();
 
 interface Props {
     title: string;
@@ -31,7 +32,8 @@ const useStyles = makeStyles({
     navbar: {
         position: 'sticky',
         top: '0',
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',  
+        marginBottom: '16px',    
     },
     navbar_container: {
         display: 'flex',
@@ -39,13 +41,21 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     logo: {
-        margin: '0rem 1rem 0 1rem'
+        padding: '1rem 1rem 1rem 1rem',
+        [theme.breakpoints.down('sm')]: {
+            display: 'flex',
+            justifyContent: 'space-around'
+        }
     },
     logo_a: {
         color: 'rgb(28,24,22)'
     },
     logo_navigation: {
         textDecoration: 'none'
+    },
+    link_in_grid: {
+        display: 'flex',
+        justifyContent: 'space-around'
     },
     nav_a: {
         display: 'block',
@@ -56,7 +66,8 @@ const useStyles = makeStyles({
     },
     navigation: {
         display: 'flex',
-        listStyle: 'none'
+        listStyle: 'none',
+        justifyContent: 'flex-end'
     },
     main: {
         width: '100%',
@@ -69,7 +80,8 @@ const useStyles = makeStyles({
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         width: '100%',
-        height: '100%',
+        minHeight: '80%',
+        paddingBottom: '20px',
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
@@ -102,7 +114,7 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingRight: '10%',
+        padding: '10%',
         fontSize: '22pt'
     },
     links_resume: {
@@ -150,46 +162,49 @@ export const Home = (props: Props) => {
 
         <div className={classes.root}>
             <nav className={classes.navbar}>
-                <div className={classes.navbar_container}>
-                    <h1 className={classes.logo}>
-                        Vahideh Ghanbari
-                    </h1>
-                    <ul className={`${classes.navigation} ${classes.logo_navigation}`}>
-                        <li>
-                            <HashLink
-                                to='/'
-                                className={classes.nav_a}
-                                scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
-                            >Home</HashLink>
-                        </li>
-                        <li>
-                            <HashLink
-                                to='/#projects'
-                                className={classes.nav_a}
-                                scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
-                            >Projects</HashLink>
-                        </li>
-                        <li>
-                            <HashLink
-                                to='/#publications'
-                                className={classes.nav_a}
-                                scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
-                            >Publications</HashLink>
-                        </li>
-                        <li>
-                            <HashLink
-                                to='/#contact'
-                                className={classes.nav_a}
-                                scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
-                            >Contact</HashLink>
-                        </li>
-                    </ul>
-                </div>
+                <Grid container className={classes.navbar_container}>
+                    <Grid item xs={12} sm={12} md={4} className={classes.logo}>
+                        <h1>
+                            Vahideh Ghanbari
+                        </h1>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={8}>
+                        <Grid container className={`${classes.navigation} ${classes.logo_navigation}`}>
+                            <Grid item xs={12} sm={12} md="auto" className={classes.link_in_grid} >
+                                <HashLink
+                                    to='/'
+                                    className={classes.nav_a}
+                                    scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
+                                >Home</HashLink>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md="auto" className={classes.link_in_grid}>
+                                <HashLink
+                                    to='/#projects'
+                                    className={classes.nav_a}
+                                    scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
+                                >Projects</HashLink>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md="auto" className={classes.link_in_grid}>
+                                <HashLink
+                                    to='/#publications'
+                                    className={classes.nav_a}
+                                    scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
+                                >Publications</HashLink>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md="auto" className={classes.link_in_grid}>
+                                <HashLink
+                                    to='/#contact'
+                                    className={classes.nav_a}
+                                    scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
+                                >Contact</HashLink>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
             </nav>
             <main className={classes.main}>
-                <div className={classes.main_text}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
+                    <Grid container spacing={2} className={classes.main_text}>
+                        <Grid item sm={12} md={5}>
                             <div className={classes.pro_photo}>
                                 <div className={classes.my_photo}></div>
                                 <div className={classes.links_resume}>
@@ -227,12 +242,10 @@ export const Home = (props: Props) => {
                                 </div>
                             </div>
                         </Grid>
-                        <Grid item xs={7} className={classes.about_text}>
+                        <Grid item sm={12} md={7} className={classes.about_text} sx={{ p: "10%" }}>
                             <b>Hi, I am Vida! I am a full-stack engineer with the machine learning experience and a Ph.D. in electrical engineering </b>
                         </Grid>
                     </Grid>
-
-                </div>
                 <Projects title={'Projects'} />
                 <Publications title={'Publications'} />
                 <Contact title={'Contact'} />

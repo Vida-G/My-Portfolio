@@ -3,6 +3,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@material-ui/core';
 import { padding } from '@mui/system';
+import { createTheme, Theme } from '@material-ui/core/styles';
+
+const theme: Theme = createTheme();
 
 
 const useStyles = makeStyles({
@@ -21,6 +24,10 @@ const useStyles = makeStyles({
     form: {
         height: '400px',
         width: '800px',
+        [theme.breakpoints.down('sm')]: {
+            width: '80%',
+            maxWidth: '800px'
+        },
         display: 'flex',
         flexDirection: 'column',
         padding: '10px',
