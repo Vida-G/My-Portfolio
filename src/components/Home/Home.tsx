@@ -79,7 +79,7 @@ const useStyles = makeStyles({
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        width: '100%',
+        // width: '100%',
         minHeight: '80%',
         paddingBottom: '20px',
         display: 'flex',
@@ -87,6 +87,7 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         textAlign: 'center',
         position: 'relative',
+        padding: '5%',
         color: 'rgba(50,50,50,1)'
     },
     my_photo: {
@@ -203,49 +204,51 @@ export const Home = (props: Props) => {
                 </Grid>
             </nav>
             <main className={classes.main}>
-                    <Grid container spacing={2} className={classes.main_text}>
-                        <Grid item sm={12} md={5}>
-                            <div className={classes.pro_photo}>
-                                <div className={classes.my_photo}></div>
-                                <div className={classes.links_resume}>
-                                    <div className={classes.logo_adjust}>
-                                        <div className={classes.Logos}>
-                                            <a href="https://www.linkedin.com/in/vahidehgh/" target="_blank">
-                                                <img src={LinkedInImg} alt="" className={classes.LinkedInLogo} />
-                                            </a>
+                    <div className={classes.main_text}>
+                        <Grid container spacing={2}>
+                            <Grid item sm={12} md={5}>
+                                <div className={classes.pro_photo}>
+                                    <div className={classes.my_photo}></div>
+                                    <div className={classes.links_resume}>
+                                        <div className={classes.logo_adjust}>
+                                            <div className={classes.Logos}>
+                                                <a href="https://www.linkedin.com/in/vahidehgh/" target="_blank">
+                                                    <img src={LinkedInImg} alt="" className={classes.LinkedInLogo} />
+                                                </a>
+                                            </div>
+                                            <div className={classes.Logos}>
+                                                <a href="https://github.com/Vida-G" target="_blank">
+                                                    <img src={GithubImg} alt="" className={classes.GitHubLogo} />
+                                                </a>
+                                            </div>
+                                            <div className={classes.Logos}>
+                                                <a href="https://scholar.google.com/citations?hl=en&user=mvigNOsAAAAJ&view_op=list_works&gmla=AJsN-F6hxALqhjegliSDRs20rx5fGzrSKmxl6WM8Eb8aDgEXLXOnTqzfkJr5wmhoq5fZIpSHKakd5V6594SCofkbrBoprOapYP6bro77L4dTbxJNaPpvZ2M" target="_blank">
+                                                    <img src={GoogleScholarImg} alt="" className={classes.GoogleScholarLogo} />
+                                                </a>
+                                            </div>
+                                            <div className={classes.Logos}>
+                                                <a href="https://www.researchgate.net/profile/Vahideh-Ghanbari" target="_blank">
+                                                    <img src={ResearchGateImg} alt="" className={classes.ResearchGateLogo} />
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div className={classes.Logos}>
-                                            <a href="https://github.com/Vida-G" target="_blank">
-                                                <img src={GithubImg} alt="" className={classes.GitHubLogo} />
-                                            </a>
-                                        </div>
-                                        <div className={classes.Logos}>
-                                            <a href="https://scholar.google.com/citations?hl=en&user=mvigNOsAAAAJ&view_op=list_works&gmla=AJsN-F6hxALqhjegliSDRs20rx5fGzrSKmxl6WM8Eb8aDgEXLXOnTqzfkJr5wmhoq5fZIpSHKakd5V6594SCofkbrBoprOapYP6bro77L4dTbxJNaPpvZ2M" target="_blank">
-                                                <img src={GoogleScholarImg} alt="" className={classes.GoogleScholarLogo} />
-                                            </a>
-                                        </div>
-                                        <div className={classes.Logos}>
-                                            <a href="https://www.researchgate.net/profile/Vahideh-Ghanbari" target="_blank">
-                                                <img src={ResearchGateImg} alt="" className={classes.ResearchGateLogo} />
-                                            </a>
-                                        </div>
+                                        <a href={VidaResume} target='_blank' style={{ textDecoration: "none" }}>
+                                            <Button
+                                                variant="outlined"
+                                                size="large"
+                                                style={{ border: '2px solid', textTransform: "none", fontSize: "14pt", width: "160px", color: 'black' }}
+                                            >
+                                                My Resume
+                                            </Button>
+                                        </a>
                                     </div>
-                                    <a href={VidaResume} target='_blank' style={{ textDecoration: "none" }}>
-                                        <Button
-                                            variant="outlined"
-                                            size="large"
-                                            style={{ border: '2px solid', textTransform: "none", fontSize: "14pt", width: "160px", color: 'black' }}
-                                        >
-                                            My Resume
-                                        </Button>
-                                    </a>
                                 </div>
-                            </div>
+                            </Grid>
+                            <Grid item sm={12} md={7} className={classes.about_text} sx={{ p: "10%" }}>
+                                <b>Hi, I am Vida! I am a full-stack engineer with the machine learning experience and a Ph.D. in electrical engineering </b>
+                            </Grid>
                         </Grid>
-                        <Grid item sm={12} md={7} className={classes.about_text} sx={{ p: "10%" }}>
-                            <b>Hi, I am Vida! I am a full-stack engineer with the machine learning experience and a Ph.D. in electrical engineering </b>
-                        </Grid>
-                    </Grid>
+                    </div>
                 <Projects title={'Projects'} />
                 <Publications title={'Publications'} />
                 <Contact title={'Contact'} />
