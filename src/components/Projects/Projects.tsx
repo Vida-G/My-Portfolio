@@ -15,9 +15,10 @@ import { CardActionArea } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
 import { padding } from '@mui/system';
 import projectImg from '../../assets/images/project.jpeg';
-import portfolioImg from '../../assets/images/portfolio.jpeg';
+import portfolioImg from '../../assets/images/portfolio.png';
 import ACCImg from '../../assets/images/ACC.png';
 import AnomalyImg from '../../assets/images/Anomaly.png';
+import SVMImg from '../../assets/images/SVM.png';
 import DealershipImg from '../../assets/images/Dealership.png';
 import F1Img from '../../assets/images/F1.png';
 import FESImg from '../../assets/images/FES.png';
@@ -84,19 +85,67 @@ export const Projects = (props: Props) => {
     return (
         <div id="projects" className={classes.root}>
 
-
-            {/*///////////////////////////////////////////////////////// Linear Regression ////////////////////////////////////////////////////////////////  */}
+            {/*///////////////////////////////////////////////////////// Movie Lovers APP ////////////////////////////////////////////////////////////////  */}
             <Card sx={cardStyles}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         height="140"
-                        image={LinearRegressionImg}
+                        image={movieLoverAppImg}
                         alt="Project"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Profit Prediction for a Food Truck with Linear Regression
+                            Movie Lovers App
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            <h3>Machine Learning, Data Science, Data Analysis, Web Development</h3>
+                        </Typography>
+                    </CardContent>
+                    <CardActions disableSpacing>
+                        <Link href="https://github.com/Vida-G/Movie-Lovers-Project" target="_blank">
+                            <IconButton aria-label="github link">
+                                <GitHubIcon />
+                            </IconButton>
+                        </Link>
+                        <Link href="https://movie-lovers-ml.web.app/" target="_blank">
+                            <IconButton aria-label="link to website">
+                                <LinkIcon />
+                            </IconButton>
+                        </Link>
+                        <ExpandMore
+                            expand={expanded}
+                            onClick={handleExpandClick}
+                            aria-expanded={expanded}
+                            aria-label="show more"
+                        >
+                            <ExpandMoreIcon />
+                        </ExpandMore>
+                    </CardActions>
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                        <CardContent>
+                            <Typography paragraph>Languages: Python, JavaScript/TypeScript, HTML, CSS, SQL</Typography>
+                            <Typography paragraph>Libraries: PyTorch, Fast.ai, React, Redux, Flask, Material UI</Typography>
+                            <Typography paragraph>
+                                A full-stack multi-page web application with a React frontend and Flask backend that provides users
+                                with movie suggestions using a machine learning algorithm.
+                            </Typography>
+                        </CardContent>
+                    </Collapse>
+                </CardActionArea>
+            </Card>
+            {/*///////////////////////////////////////////////////////// SVM ////////////////////////////////////////////////////////////////  */}
+            <Card sx={cardStyles}>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={SVMImg}
+                        alt="Project"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            Email Spam Classifier using Support Vector Machines (SVMs)
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <h3>Machine Learning</h3>
@@ -126,7 +175,7 @@ export const Projects = (props: Props) => {
                         <CardContent>
                             <Typography paragraph>Languages: MATLAB</Typography>
                             <Typography paragraph>
-                                Implemented linear regression to predict profits for a food truck based on the populations from the cities.
+                                Applied SVMs to build a spam filter to classify emails into spam and non-spam email with high accuracy.
                             </Typography>
                         </CardContent>
                     </Collapse>
@@ -143,7 +192,7 @@ export const Projects = (props: Props) => {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Principal Component Analysis (PCA) for Image Processing
+                            Face Recognition using Principal Component Analysis (PCA)
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <h3>Neural Networks, Optimization, Data Science</h3>
@@ -171,7 +220,8 @@ export const Projects = (props: Props) => {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                            <Typography paragraph>Languages: MATLAB</Typography>
+                            <Typography paragraph>Languages: Python</Typography>
+                            <Typography paragraph>Libraries: TensorFlow, NumPy</Typography>
                             <Typography paragraph>
                                 Used principal component analysis (PCA) to find a low-dimensional representation of face images.
                             </Typography>
@@ -274,6 +324,53 @@ export const Projects = (props: Props) => {
                     </Collapse>
                 </CardActionArea>
             </Card>
+            {/*///////////////////////////////////////////////////////// Linear Regression ////////////////////////////////////////////////////////////////  */}
+            <Card sx={cardStyles}>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={LinearRegressionImg}
+                        alt="Project"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            Profit Prediction for a Food Truck with Linear Regression
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            <h3>Machine Learning</h3>
+                        </Typography>
+                    </CardContent>
+                    <CardActions disableSpacing>
+                        {/* <Link href="https://github.com/Vida-G" target="_blank">
+                            <IconButton aria-label="github link">
+                                <GitHubIcon />
+                            </IconButton>
+                        </Link>
+                        <Link href="https://github.com/" target="_blank">
+                            <IconButton aria-label="link to website">
+                                <LinkIcon />
+                            </IconButton>
+                        </Link> */}
+                        <ExpandMore
+                            expand={expanded}
+                            onClick={handleExpandClick}
+                            aria-expanded={expanded}
+                            aria-label="show more"
+                        >
+                            <ExpandMoreIcon />
+                        </ExpandMore>
+                    </CardActions>
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                        <CardContent>
+                            <Typography paragraph>Languages: MATLAB</Typography>
+                            <Typography paragraph>
+                                Implemented linear regression to predict profits for a food truck based on the populations from the cities.
+                            </Typography>
+                        </CardContent>
+                    </Collapse>
+                </CardActionArea>
+            </Card>
             {/*///////////////////////////////////////////////////////// Medical Robotics ////////////////////////////////////////////////////////////////  */}
             <Card sx={cardStyles}>
                 <CardActionArea>
@@ -364,7 +461,7 @@ export const Projects = (props: Props) => {
                             <Typography paragraph>Languages: SQL</Typography>
                             <Typography paragraph>Libraries: PostgreSQL, Lucidchart</Typography>
                             <Typography paragraph>
-                                Here, we created an ERD for a car dealership and then build the database in PostgreSQL based on the chart.
+                                Created an ERD for a car dealership and then build the database in PostgreSQL based on the chart.
                             </Typography>
                         </CardContent>
                     </Collapse>
@@ -514,7 +611,7 @@ export const Projects = (props: Props) => {
                     </Collapse>
                 </CardActionArea>
             </Card>
-            
+
             {/*///////////////////////////////////////////////////////// Portfolio ////////////////////////////////////////////////////////////////  */}
             <Card sx={cardStyles}>
                 <CardActionArea>
@@ -558,54 +655,6 @@ export const Projects = (props: Props) => {
                             <Typography paragraph>Libraries: React, Material UI </Typography>
                             <Typography paragraph>
                                 My portfolio representing my projects, publications, resume, with a contact form.
-                            </Typography>
-                        </CardContent>
-                    </Collapse>
-                </CardActionArea>
-            </Card>
-            {/*///////////////////////////////////////////////////////// Movie Lovers APP ////////////////////////////////////////////////////////////////  */}
-            <Card sx={cardStyles}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="140"
-                        image={movieLoverAppImg}
-                        alt="Project"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Movie Lovers App
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            <h3>Web Development</h3>
-                        </Typography>
-                    </CardContent>
-                    <CardActions disableSpacing>
-                        <Link href="https://github.com/Vida-G/Movie-Lovers-App" target="_blank">
-                            <IconButton aria-label="github link">
-                                <GitHubIcon />
-                            </IconButton>
-                        </Link>
-                        <Link href="https://movie-lovers-2302a.web.app/" target="_blank">
-                            <IconButton aria-label="link to website">
-                                <LinkIcon />
-                            </IconButton>
-                        </Link>
-                        <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
-                        >
-                            <ExpandMoreIcon />
-                        </ExpandMore>
-                    </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                        <CardContent>
-                            <Typography paragraph>Languages: Python, JavaScript/TypeScript, HTML, CSS</Typography>
-                            <Typography paragraph>Libraries: React, Redux, Material UI</Typography>
-                            <Typography paragraph>
-                                The website with authentication for users to sign-in/sign-up, add/update/remove movies in their accounts.
                             </Typography>
                         </CardContent>
                     </Collapse>
@@ -804,7 +853,7 @@ export const Projects = (props: Props) => {
                     </Collapse>
                 </CardActionArea>
             </Card>
-            
+
             {/*///////////////////////////////////////////////////////// Switched Systems ////////////////////////////////////////////////////////////////  */}
             <Card sx={cardStyles}>
                 <CardActionArea>
@@ -902,8 +951,8 @@ export const Projects = (props: Props) => {
                     </Collapse>
                 </CardActionArea>
             </Card>
-            
-            {/*///////////////////////////////////////////////////////// Capstone Project ////////////////////////////////////////////////////////////////  */}
+
+            {/* ///////////////////////////////////////////////////////// Capstone Project //////////////////////////////////////////////////////////////// 
             <Card sx={cardStyles}>
                 <CardActionArea>
                     <CardMedia
@@ -951,7 +1000,7 @@ export const Projects = (props: Props) => {
                         </CardContent>
                     </Collapse>
                 </CardActionArea>
-            </Card>
+            </Card> */}
         </div>
     );
 }
